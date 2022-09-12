@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "rm -rf ./build/ && tsc --project tsconfig.build.json",
-    "start": "yarn build && node build/server.js"
+    "start": "npm build && node build/server.js"
   },
   "author": "",
   "license": "ISC",
