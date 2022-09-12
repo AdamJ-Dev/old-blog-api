@@ -8,7 +8,7 @@ const createBlog = async (req: Request, res: Response) => {
     const blog = await Blog.create({ title, path, body });
     res.status(200).json({ blog });
   } catch (err) {
-    res.status(404).json({ error: getErrorMessage(err) });
+    res.status(409).json({ error: getErrorMessage(err) });
   }
 };
 

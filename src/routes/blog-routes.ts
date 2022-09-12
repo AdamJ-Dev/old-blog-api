@@ -4,6 +4,7 @@ import blogControllers from "../controllers/blogs";
 
 const router = express.Router();
 
+router.get("/blogs", blogControllers.findAllBlogs);
 router.get("/blog/:id", blogControllers.findBlog);
 router.post("/blog/create", requireAuthenticate, blogControllers.createBlog);
 router.put("/blog/:id", requireAuthenticate, blogControllers.updateBlog);

@@ -16,7 +16,7 @@ const updateBlog = async (req: Request, res: Response) => {
       throw Error(NO_SUCH_BLOG);
     }
   } catch (err) {
-    res.status(404).json({ error: getErrorMessage(err) });
+    res.status(409).json({ error: getErrorMessage(err) });
   }
 };
 
