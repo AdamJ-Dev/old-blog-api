@@ -31,3 +31,6 @@ export const PASSWORD_MISSING_SPECIAL_CHAR =
 
 // validate-passcode
 export const INCORRECT_PASSCODE = "Incorrect passcode.";
+
+// 404
+export const RESOURCE_NOT_FOUND = "No resources were found for this request.";

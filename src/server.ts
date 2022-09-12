@@ -4,6 +4,7 @@ import connectToMongoDb from "./utility/mongo-db/connect-to-mongo-db";
 import authRouter from "./routes/auth-routes";
 
 import dotenv from "dotenv";
+import serve404 from "./controllers/404";
 dotenv.config();
 
 const PORT = process.env.PORT || 3001;
@@ -18,6 +19,7 @@ app.use(cookieParser());
 
 // Set up the routes
 app.use(authRouter);
+app.use("*", serve404);
 
 // Establish connection to database
 connectToMongoDb();
