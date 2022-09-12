@@ -34,3 +34,5 @@ export const INCORRECT_PASSCODE = "Incorrect passcode.";
 
 // 404
 export const RESOURCE_NOT_FOUND = "No resources were found for this request.";
+
+export const NO_SUCH_BLOG = "We could not find a matching blog."
