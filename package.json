@@ -6,8 +6,10 @@
   "scripts": {
     "test": "jest",
     "build": "rm -rf ./build/ && tsc --project tsconfig.build.json",
+    "cold-build": "tsc --project tsconfig.build.json", 
     "start": "node build/server.js",
-    "dev": "npm run build && node build/server.js"
+    "dev": "npm run build && node build/server.js",
+    "cold-dev": "npm run cold-build && node build/server.js"
   },
   "author": "",
   "license": "ISC",
