@@ -7,7 +7,7 @@ const requireAuthorize = async (
   next: NextFunction
 ) => {
   const { user_id } = req.params;
-  const activeId = res.locals.user;
+  const activeId = res.locals.user._id.toString();
   if (activeId === user_id) {
     next();
   } else {
