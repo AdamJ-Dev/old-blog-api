@@ -4,7 +4,7 @@ import { getErrorMessage } from "../../../utility/get-error-message";
 
 const findAllBlogs = async (req: Request, res: Response) => {
   try {
-    const blogs = await Blog.find();
+    const blogs = await Blog.find().sort({ createdAt: 'desc'});
     res.status(200).json({ blogs });
   } catch (err) {
     res.status(404).json({ error: getErrorMessage(err) });
