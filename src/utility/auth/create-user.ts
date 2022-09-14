@@ -6,6 +6,6 @@ export async function createUser(
   password: string
 ) {
   const hashedPassword = await bcryptHash(password);
-  const user = await model.create({ username, password: hashedPassword, owner: false });
+  const user = await model.create({ username, password: hashedPassword, admin: false });
   return user;
 }

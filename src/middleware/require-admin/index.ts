@@ -1,17 +1,17 @@
 import { INAUTHED_REQUEST } from "../../constants/errors";
 import type { NextFunction, Request, Response } from "express";
 
-const requireOwnership = async (
+const requireAdminship = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  const isOwner = res.locals.user?.owner;
-  if (isOwner) {
+  const isAdmin = res.locals.user?.admin;
+  if (isAdmin) {
     next();
   } else {
     res.status(401).json({ error: INAUTHED_REQUEST });
   }
 };
 
-export default requireOwnership;
+export default requireAdminship;

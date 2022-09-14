@@ -13,6 +13,7 @@ export type UserKeys = {
   _id: Types.ObjectId;
   username: string;
   password: string;
+  admin: string;
 };
 
 type UserMethods = {
@@ -32,7 +33,7 @@ const userSchema: Schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  owner: {
+  admin: {
     type: Boolean,
     required: true,
   }
