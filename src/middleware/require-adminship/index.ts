@@ -1,4 +1,4 @@
-import { INAUTHED_REQUEST } from "../../constants/errors";
+import { NOT_ADMIN } from "../../constants/errors";
 import type { NextFunction, Request, Response } from "express";
 
 const requireAdminship = async (
@@ -10,7 +10,7 @@ const requireAdminship = async (
   if (isAdmin) {
     next();
   } else {
-    res.status(401).json({ error: INAUTHED_REQUEST });
+    res.status(401).json({ error: NOT_ADMIN });
   }
 };
 

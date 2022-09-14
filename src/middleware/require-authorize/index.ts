@@ -1,4 +1,4 @@
-import { INAUTHED_REQUEST } from "../../constants/errors";
+import { WRONG_USER } from "../../constants/errors";
 import type { NextFunction, Request, Response } from "express";
 
 const requireAuthorize = async (
@@ -11,7 +11,7 @@ const requireAuthorize = async (
   if (activeId === user_id) {
     next();
   } else {
-    res.status(401).json({ error: INAUTHED_REQUEST });
+    res.status(401).json({ error: WRONG_USER });
   }
 };
 
