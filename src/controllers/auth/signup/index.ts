@@ -8,9 +8,9 @@ const signup = async (req: Request, res: Response) => {
   try {
     const user = await User.signup(username, password, passcode);
     const token = createToken(user._id.toString());
-    const cookieData = { id: user._id, token };
+    const cookieData = { id: user._id, token, admin: user.admin };
     res.cookie("user", JSON.stringify(cookieData));
-    res.status(200).json({ user: cookieData });
+    res.status(200).json({ user });
   } catch (err) {
     res.status(400).json({ error: getErrorMessage(err) });
   }

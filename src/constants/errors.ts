@@ -1,6 +1,12 @@
-// requireAuth
+// requireAuthenticate
 export const TOKEN_REQUIRED = "Authorization token required.";
 export const INAUTHED_REQUEST = "Request not authorized.";
+
+// requireAuthorize
+export const WRONG_USER = "You cannot perform this action on behalf of another user.";
+
+// requireAdminship
+export const NOT_ADMIN = "This action requires admin permissions.";
 
 // userSchema.statics.login
 export const NO_SUCH_USER = "No such user exists.";
@@ -35,4 +41,8 @@ export const INCORRECT_PASSCODE = "Incorrect passcode.";
 // 404
 export const RESOURCE_NOT_FOUND = "No resources were found for this request.";
 
-export const NO_SUCH_BLOG = "We could not find a matching blog."
+export const NO_SUCH_BLOG = "We could not find a matching blog.";
+export const NO_SUCH_COMMENT = "No such comment was found.";
+
+// updateComment 
+export const NOT_YOUR_COMMENT = "This comment was not made by you."

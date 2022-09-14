@@ -13,6 +13,7 @@ export type UserKeys = {
   _id: Types.ObjectId;
   username: string;
   password: string;
+  admin: string;
 };
 
 type UserMethods = {
@@ -32,6 +33,10 @@ const userSchema: Schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  admin: {
+    type: Boolean,
+    required: true,
+  }
 });
 
 userSchema.statics.signup = signup;

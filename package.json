@@ -5,14 +5,21 @@
   "main": "build/server.js",
   "scripts": {
     "test": "jest",
-    "build": "rm -rf ./build/ && tsc --project tsconfig.build.json",
+    "clear": "rm -rf ./build/",
+    "compile": "tsc --project tsconfig.build.json",
+    "build": "npm run clear && npm run compile",
+    "watchCompile": "tsc --watch --project tsconfig.build.json",
     "start": "node build/server.js",
-    "dev": "npm run build && node build/server.js"
+    "stage": "npm run build && npm run start",
+    "watchAndLearn": "concurrently \"npm run watchCompile\" \"nodemon build/server.js\"",
+    "dev": "npm run build && npm run watchAndLearn",
+    "weakDev": "npm run compile && npm run watchAndLearn"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "5.0.1",
+    "concurrently": "^7.4.0",
     "cookie-parser": "1.4.6",
     "dotenv": "16.0.1",
     "express": "4.18.1",
@@ -29,6 +36,7 @@
     "@types/jsonwebtoken": "8.5.9",
     "@types/node": "14.18.23",
     "jest": "^29.0.1",
+    "nodemon": "^2.0.19",
     "ts-jest": "^28.0.8"
   },
   "jest": {
