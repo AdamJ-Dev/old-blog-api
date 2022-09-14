@@ -7,23 +7,24 @@ import requireAuthorize from "../middleware/require-authorize";
 const router = express.Router();
 
 router.get("/comments", commentsControllers.findAllComments);
+router.get("/blog/:blog_id/comments", commentsControllers.findBlogComments);
 router.get("/comments/:id", commentsControllers.findComment);
 router.post("/comment/create", commentsControllers.createOrdinaryComment);
 router.post(
-  "/comment/user/:user_id/create",
+  "/user/:user_id/comment/create",
   requireAuthenticate,
   requireAuthorize,
   commentsControllers.createUserComment
 );
 router.post(
-  "/comment/admin/:user_id/create",
+  "/admin/:user_id/comment/create",
   requireAuthenticate,
   requireAuthorize,
   requireAdminship,
   commentsControllers.createAdminComment
 );
 router.put(
-  "/comment/:comment_id/user/:user_id",
+  "/user/:user_id/comment/:comment_id/",
   requireAuthenticate,
   requireAuthorize,
   commentsControllers.updateComment
