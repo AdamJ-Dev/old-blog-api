@@ -6,8 +6,8 @@ const requireOwnership = async (
   res: Response,
   next: NextFunction
 ) => {
-  const activeId = res.locals.user?._id.toString();
-  if (activeId === process.env.OWNER_ID) {
+  const isOwner = res.locals.user?.owner;
+  if (isOwner) {
     next();
   } else {
     res.status(401).json({ error: INAUTHED_REQUEST });

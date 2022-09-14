@@ -32,6 +32,10 @@ const userSchema: Schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  owner: {
+    type: Boolean,
+    required: true,
+  }
 });
 
 userSchema.statics.signup = signup;
