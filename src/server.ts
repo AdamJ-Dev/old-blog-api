@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import connectToMongoDb from "./utility/mongo-db/connect-to-mongo-db";
 import authRouter from "./routes/auth-routes";
 import blogRouter from "./routes/blog-routes";
+import commentsRouter from "./routes/comments-routes";
 
 import dotenv from "dotenv";
 import serve404 from "./controllers/404";
@@ -21,6 +22,9 @@ app.use(cookieParser());
 // Set up the routes
 app.use(authRouter);
 app.use(blogRouter);
+app.use(commentsRouter);
+
+// Catch unsupported routes
 app.use("*", serve404);
 
 // Establish connection to database
