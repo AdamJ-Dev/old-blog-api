@@ -1,6 +1,6 @@
 import login from "./login";
 import signup from "./signup";
-import findUser from "./find-user";
+import findUser from "./get";
 
 const authControllers = {
   findUser,

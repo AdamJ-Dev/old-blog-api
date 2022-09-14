@@ -7,23 +7,8 @@ const router = express.Router();
 
 router.get("/blogs", blogControllers.findAllBlogs);
 router.get("/blog/:id", blogControllers.findBlog);
-router.post(
-  "/blog/create",
-  requireAuthenticate,
-  requireAdminship,
-  blogControllers.createBlog
-);
-router.put(
-  "/blog/:id",
-  requireAuthenticate,
-  requireAdminship,
-  blogControllers.updateBlog
-);
-router.delete(
-  "/blog/:id",
-  requireAuthenticate,
-  requireAdminship,
-  blogControllers.deleteBlog
-);
+router.post("/blog/create", requireAuthenticate, requireAdminship, blogControllers.createBlog);
+router.put("/blog/:id", requireAuthenticate, requireAdminship, blogControllers.updateBlog);
+router.delete("/blog/:id", requireAuthenticate, requireAdminship, blogControllers.deleteBlog);
 
 export default router;

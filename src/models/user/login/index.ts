@@ -11,17 +11,15 @@ async function login(this: any, username: string, password: string) {
   if (infoMissingError) throw Error(infoMissingError);
 
   const user = await this.findOne({ username });
+  if (!user) throw Error(NO_SUCH_USER);
 
-  if (user) {
-    const passwordError = await checkForError({
+  const passwordError = await checkForError({
       checker: bcryptCheckMatch,
       checkees: [password, user.password],
-    });
-    if (passwordError) throw Error(passwordError);
-    else return user;
-  }
-
-  throw Error(NO_SUCH_USER);
+  });
+  if (passwordError) throw Error(passwordError);
+    
+  return user;
 }
 
 export default login;

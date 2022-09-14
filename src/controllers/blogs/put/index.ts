@@ -8,12 +8,11 @@ const updateBlog = async (req: Request, res: Response) => {
   const { title, path, body } = req.body;
   try {
     const blog = await Blog.findById(id);
-    if (blog) {
+    if (!blog) throw Error(NO_SUCH_BLOG);
+    else {
       Object.assign(blog, { title, path, body });
       const update = await blog.save();
       res.status(200).json({ blog: update });
-    } else {
-      throw Error(NO_SUCH_BLOG);
     }
   } catch (err) {
     res.status(409).json({ error: getErrorMessage(err) });

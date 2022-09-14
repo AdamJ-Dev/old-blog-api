@@ -1,7 +1,7 @@
 import { Types } from "mongoose";
 import Comment from "../../../../models/comment";
 
-const unravelCommentThread = async (startId: Types.ObjectId) => {
+export const unravelCommentThread = async (startId: Types.ObjectId) => {
   return await Comment.aggregate([
     {
       $graphLookup: {
@@ -24,5 +24,3 @@ const unravelCommentThread = async (startId: Types.ObjectId) => {
     },
   ]);
 };
-
-export default unravelCommentThread;

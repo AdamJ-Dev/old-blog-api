@@ -8,11 +8,10 @@ const deleteBlog = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
     const blog = await Blog.findByIdAndRemove(id);
-    if (blog) {
+    if (!blog) throw Error(NO_SUCH_BLOG);
+    else {
       await Comment.deleteMany({ blogId: blog._id });
       res.status(200).json({ blog });
-    } else {
-      throw Error(NO_SUCH_BLOG);
     }
   } catch (err) {
     res.status(409).json({ error: getErrorMessage(err) });

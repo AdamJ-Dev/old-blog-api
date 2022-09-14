@@ -11,9 +11,7 @@ async function signup(
   const checks = getSignupChecks(this, username, password, passcode);
 
   const error = await checkForError(...checks);
-  if (error) {
-    throw Error(error);
-  }
+  if (error) throw Error(error);
 
   const user = await createUser(this, username, password);
   return user;
