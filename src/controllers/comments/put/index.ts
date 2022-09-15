@@ -4,12 +4,12 @@ import { getErrorMessage } from "../../../utility/get-error-message";
 import Comment from "../../../models/comment";
 
 const updateComment = async (req: Request, res: Response) => {
-  const { comment_id } = req.params;
+  const { id } = req.params;
   const { pinned } = req.body;
   try {
     if (pinned === undefined) throw Error(NO_UPDATES_PROVIDED);
     
-    const comment = await Comment.findById(comment_id);
+    const comment = await Comment.findById(id);
     if (!comment) throw Error(NO_SUCH_COMMENT);
     
     Object.assign(comment, { pinned: Boolean(pinned) });
