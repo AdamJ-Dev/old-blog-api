@@ -8,11 +8,11 @@ const router = express.Router();
 
 router.get("/comments", commentsControllers.findAllComments);
 router.get("/blog/:blog_id/comments", commentsControllers.findBlogComments);
-router.get("/comments/:id", commentsControllers.findComment);
+router.get("/comment/:id", commentsControllers.findComment);
 router.post("/comment/create", commentsControllers.createOrdinaryComment);
 router.post("/user/:user_id/comment/create", requireAuthenticate, requireAuthorize, commentsControllers.createUserComment);
-router.post("/admin/:user_id/comment/create",requireAuthenticate, requireAuthorize, requireAdminship, commentsControllers.createAdminComment);
-router.put("/user/:user_id/comment/:comment_id/", requireAuthenticate, requireAuthorize, commentsControllers.updateComment);
+router.post("user/admin/:user_id/comment/create",requireAuthenticate, requireAuthorize, requireAdminship, commentsControllers.createAdminComment);
+router.put("/user/:user_id/comment/:comment_id", requireAuthenticate, requireAuthorize, commentsControllers.updateComment);
 router.delete("/comment/:id", requireAuthenticate, requireAdminship, commentsControllers.deleteComment);
 
 export default router;
