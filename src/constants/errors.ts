@@ -43,3 +43,6 @@ export const RESOURCE_NOT_FOUND = "No resources were found for this request.";
 
 export const NO_SUCH_BLOG = "We could not find a matching blog.";
 export const NO_SUCH_COMMENT = "No such comment was found.";
+
+// updateComment 
+export const NO_UPDATES_PROVIDED = "You did not submit any updates."
