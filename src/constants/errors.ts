@@ -45,4 +45,4 @@ export const NO_SUCH_BLOG = "We could not find a matching blog.";
 export const NO_SUCH_COMMENT = "No such comment was found.";
 
 // updateComment 
-export const NOT_YOUR_COMMENT = "This comment was not made by you."
+export const NO_UPDATES_PROVIDED = "You did not submit any updates."
