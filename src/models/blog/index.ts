@@ -5,6 +5,7 @@ export type BlogKeys = {
   title: string;
   path: string;
   body: string;
+  tags: string[];
   createdAt: Date;
   updatedAt: Date;
 };
@@ -24,6 +25,10 @@ const BlogSchema: Schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  tags: {
+    type: [String],
+    required: true,
+  }
 }, { timestamps: true });
 
 const Blog = mongoose.model<BlogKeys>("Blog", BlogSchema);

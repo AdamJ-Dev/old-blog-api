@@ -3,9 +3,9 @@ import { getErrorMessage } from "../../../utility/get-error-message";
 import Blog from "../../../models/blog";
 
 const createBlog = async (req: Request, res: Response) => {
-  const { title, path, body } = req.body;
+  const { title, path, body, tags } = req.body;
   try {
-    const blog = await Blog.create({ title, path, body });
+    const blog = await Blog.create({ title, path, body, tags });
     res.status(200).json({ blog });
   } catch (err) {
     res.status(409).json({ error: getErrorMessage(err) });
