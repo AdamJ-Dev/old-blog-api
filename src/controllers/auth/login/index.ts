@@ -7,8 +7,10 @@ const login = async (req: Request, res: Response) => {
   const { username, password } = req.body;
   try {
     const user = await User.login(username, password);
-    const token = createToken(user._id.toString());
-    const cookieData = { id: user._id, token, admin: user.admin };
+    const id = user._id.toString();
+    const token = createToken(id);
+    const cookieData: Record<string, string> = { id, token };
+    if (user.admin) cookieData['admin'] = user.admin; 
     res.cookie("user", JSON.stringify(cookieData));
     res.status(200).json({ user: cookieData });
   } catch (err) {
