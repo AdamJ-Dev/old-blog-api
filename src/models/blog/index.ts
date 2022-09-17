@@ -6,6 +6,7 @@ export type BlogKeys = {
   path: string;
   body: string;
   tags: string[];
+  isDraft: boolean;
   createdAt: Date;
   updatedAt: Date;
 };
@@ -27,6 +28,10 @@ const BlogSchema: Schema = new mongoose.Schema({
   },
   tags: {
     type: [String],
+    required: true,
+  },
+  isDraft: {
+    type: Boolean,
     required: true,
   }
 }, { timestamps: true });
