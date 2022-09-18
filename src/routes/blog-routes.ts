@@ -8,6 +8,7 @@ const router = express.Router();
 router.get("/blogs", requireAuthenticate, requireAdminship, blogControllers.findAllBlogs);
 router.get("/blogs/drafts", requireAuthenticate, requireAdminship, blogControllers.findBlogDrafts);
 router.get("/blogs/published", blogControllers.findPublishedBlogs);
+router.get("/blogs/tags", blogControllers.findBlogTags);
 router.get("/blog/:id", blogControllers.findBlog);
 router.post("/blog/create", requireAuthenticate, requireAdminship, blogControllers.createBlog);
 router.put("/blog/:id", requireAuthenticate, requireAdminship, blogControllers.updateBlog);
