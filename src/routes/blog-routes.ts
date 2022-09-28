@@ -11,9 +11,9 @@ router.get("/blogs/public", blogControllers.findPublishedBlogs);
 
 router.get("/blogs/tags", blogControllers.findTags);
 
-router.get("/blog/:id", requireAuthenticate, requireAdminship, blogControllers.findBlog);
-router.get("/blog/public/:id", blogControllers.findBlog);
-router.get("/blog/draft/:id", requireAuthenticate, requireAdminship, blogControllers.findBlog);
+router.get("/blog/:path", requireAuthenticate, requireAdminship, blogControllers.findBlog);
+router.get("/blog/public/:path", blogControllers.findBlog);
+router.get("/blog/draft/:path", requireAuthenticate, requireAdminship, blogControllers.findBlog);
 
 router.post("/blog/create", requireAuthenticate, requireAdminship, blogControllers.createBlog);
 router.put("/blog/:id", requireAuthenticate, requireAdminship, blogControllers.updateBlog);

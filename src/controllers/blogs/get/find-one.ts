@@ -4,9 +4,9 @@ import { getErrorMessage } from "../../../utility/get-error-message";
 import Blog from "../../../models/blog";
 
 const findBlog = async (req: Request, res: Response) => {
-  const { id } = req.params; 
+  const { path } = req.params; 
   try {
-    const blog = await Blog.findById(id);
+    const blog = await Blog.findOne({ path });
     if (!blog) throw Error(NO_SUCH_BLOG);
     else {
       res.status(200).json({ blog });
