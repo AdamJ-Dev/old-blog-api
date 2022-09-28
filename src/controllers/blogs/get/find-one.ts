@@ -1,10 +1,10 @@
 import { NO_SUCH_BLOG } from "../../../constants/errors";
 import type { Request, Response } from "express";
-import Blog from "../../../models/blog";
 import { getErrorMessage } from "../../../utility/get-error-message";
+import Blog from "../../../models/blog";
 
 const findBlog = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const { id } = req.params; 
   try {
     const blog = await Blog.findById(id);
     if (!blog) throw Error(NO_SUCH_BLOG);

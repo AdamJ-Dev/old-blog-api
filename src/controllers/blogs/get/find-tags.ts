@@ -3,9 +3,9 @@ import { getErrorMessage } from "../../../utility/get-error-message";
 import { extractTags } from "./helpers/extract-tags";
 import Blog from "../../../models/blog";
 
-const findBlogTags = async (req: Request, res: Response) => {
+const findTags = async (_req: Request, res: Response) => {
   try {
-    const blogs = await Blog.find().select("tags");
+    const blogs = await Blog.find();
     const tags = extractTags(blogs);
     res.status(200).json({ tags });
   } catch (err) {
@@ -13,4 +13,4 @@ const findBlogTags = async (req: Request, res: Response) => {
   }
 };
 
-export default findBlogTags;
+export default findTags;
