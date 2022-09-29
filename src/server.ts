@@ -13,20 +13,19 @@ dotenv.config();
 const PORT = process.env.PORT || 3001;
 const app: Express = express();
 
-// CORS policy
-const CORS_ORIGINS = [process.env.UI_URL, process.env.CMS_URL] as string[];
-app.use(
-  cors({
-    origin: CORS_ORIGINS,
-  })
-);
-
 // Middleware to parse POST/PUT requests
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Middleware to parse cookies
 app.use(cookieParser());
+
+// Middleware for CORS
+app.use(
+  cors({
+    origin: [process.env.UI_URL, process.env.CMS_URL] as string[],
+  })
+);
 
 // Set up the routes
 app.use(authRouter);
