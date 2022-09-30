@@ -6,4 +6,5 @@ export const COOKIE_OPTIONS = {
   path: "/",
   maxAge: threeDaysInMs,
   expires: new Date(Date.now() + threeDaysInMs),
+  httpOnly: true,
 };
